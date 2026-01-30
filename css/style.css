@@ -121,6 +121,10 @@ h1{
 }
 .input-error {
   border: 0.2rem solid #f15656 !important;
+  color: #f15656 !important;
+}
+.input-error::placeholder {
+  color: #f15656;
 }
 input::placeholder {
   color: var(--primary);

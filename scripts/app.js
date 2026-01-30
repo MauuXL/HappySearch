@@ -34,6 +34,7 @@ function app() {
 
     inputs.forEach((input, index) => {
         input.addEventListener('input', () => {
+            input.classList.remove('input-error');
             if (input.value && inputs[index + 1]) {
                 inputs[index + 1].focus();
                 inputs[index + 1].scrollIntoView({
@@ -43,6 +44,8 @@ function app() {
             }
         });
         input.addEventListener('click', () => {
+            input.value = '';
+
             input.focus();
             setTimeout(() => {
                 input.scrollIntoView({
@@ -72,6 +75,11 @@ function app() {
                     input.classList.add('input-error', 'animate__animated', 'animate__shakeX');
                 }, 300);
                 input.classList.remove('animate__animated', 'animate__shakeX');
+                setTimeout(() => {
+                    inputs.forEach(input => {
+                        input.value = '';
+                    });
+                }, 1000);
             });
             navigator.vibrate(200);
         }
