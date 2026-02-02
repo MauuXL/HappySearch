@@ -13,7 +13,7 @@ function starting() {
 starting();
 
 function app() {
-    const code = ['2', '2', '3', '4'];
+    const code = ['0', '5', '1', '0', '2', '2'];
     header.innerHTML = "<h1>Ingrese código!</h1>";
     header.classList.add('animate__animated', 'animate__fadeIn');
 
@@ -23,6 +23,8 @@ function app() {
             <input id="n2" type="text" autocomplete="off" inputmode="numeric" maxlength="1" placeholder="-" />
             <input id="n3" type="text" autocomplete="off" inputmode="numeric" maxlength="1" placeholder="-" />
             <input id="n4" type="text" autocomplete="off" inputmode="numeric" maxlength="1" placeholder="-" />
+            <input id="n5" type="text" autocomplete="off" inputmode="numeric" maxlength="1" placeholder="-" />
+            <input id="n6" type="text" autocomplete="off" inputmode="numeric" maxlength="1" placeholder="-" />
         </div>
     `;
     section.classList.add('animate__animated', 'animate__backInUp');
@@ -62,13 +64,38 @@ function app() {
         const n2 = document.querySelector('#n2').value;
         const n3 = document.querySelector('#n3').value;
         const n4 = document.querySelector('#n4').value;
+        const n5 = document.querySelector('#n5').value;
+        const n6 = document.querySelector('#n6').value;
 
-        if (n1 === code[0] && n2 === code[1] && n3 === code[2] && n4 === code[3]) {
+        if (n1 === code[0] && n2 === code[1] && n3 === code[2] && n4 === code[3] && n5 === code[4] && n6 === code[5]) {
             inputs.forEach(input => {
                 input.classList.remove('input-error');
             });
             start.classList.remove('hidden');
             starting();
+            const dialog = document.createElement('dialog');
+            dialog.innerHTML = `
+                <h2>Un poquito de historia</h2>
+                <p>Nuestra historia❤️</p>
+
+                <video controls style="width:100%; border-radius:12px; margin-top:12px;">
+                    <source src="./source/lumi.mp4" type="video/mp4">
+                </video>
+
+                <form method="dialog">
+                    <button >Cerrar</button>
+                </form>
+            `;
+            document.body.appendChild(dialog);
+            dialog.addEventListener('close', () => {
+                dialog.querySelector('video')?.pause();
+                dialog.remove();
+            });
+
+            setTimeout(() => {
+                dialog.showModal();
+            }, 300);
+
         } else {
             inputs.forEach(input => {
                 setTimeout(() => {
