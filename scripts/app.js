@@ -77,10 +77,18 @@ function app() {
             dialog.innerHTML = `
                 <h2>Un poquito de historia</h2>
                 <p>Nuestra historia❤️</p>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://player.vimeo.com/video/1161235993"
+                        width="100%"
+                        height="360"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
 
-                <video controls style="width:100%; border-radius:12px; margin-top:12px;">
-                    <source src="./source/lumi.mp4" type="video/mp4">
-                </video>
+                </div>
+
 
                 <form method="dialog">
                     <button >Cerrar</button>
