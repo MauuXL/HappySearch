@@ -23,16 +23,79 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
-
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 /* =========================
    VARIABLES
 ========================= */
 :root {
   --background-color: #ffffff;
+  --bg-input: #ffffff;
   --primary: #948bcd;
   --secondary: #4a3983;
-  --outline: #311862;
+}
+
+body.dark {
+  --background-color: #0D0D0D;
+  --bg-input: #292929;
+  --primary: #4E4974;
+}
+
+/* =========================
+   TRANSICIONES GLOBALES
+========================= */
+body {
+  background-color: var(--background-color);
+  color: var(--primary);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+#container-main,
+#footer,
+#start,
+dialog {
+  transition: background-color 0.35s ease;
+}
+
+input,
+button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================
+   BOTÓN DARK MODE
+========================= */
+#containerButton {
+  position: relative;
+}
+
+#darkButton {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+#darkButton i {
+  transition:
+    transform 0.45s cubic-bezier(.4,0,.2,1),
+    color 0.3s ease;
+}
+
+body.dark #darkButton i {
+  transform: rotate(180deg) scale(1.1);
 }
 
 /* =========================
@@ -50,6 +113,7 @@ html, body {
 
 #start svg {
   height: 5rem;
+  background: var(--background-color);
 }
 
 /* =========================
@@ -77,9 +141,11 @@ html, body {
   text-align: center;
   padding-top: 2rem;
 }
-h1{
-    font-size: 2.5rem;
+
+h1 {
+  font-size: 2.5rem;
 }
+
 /* =========================
    SECTION
 ========================= */
@@ -112,27 +178,30 @@ h1{
   min-width: 2rem;
   max-width: 2.8rem;
   min-height: 2rem;
-  max-height: 10rem;
   font-size: 2rem;
   border-radius: 8%;
   border: 0.2rem solid var(--primary);
   text-align: center;
   color: var(--primary);
+  background-color: var(--bg-input);
 }
+
 .input-error {
-  border: 0.2rem solid #f15656 !important;
+  border-color: #f15656 !important;
   color: #f15656 !important;
 }
+
 .input-error::placeholder {
   color: #f15656;
 }
+
 input::placeholder {
   color: var(--primary);
   opacity: 1;
 }
+
 input:focus::placeholder {
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 /* =========================
@@ -143,68 +212,63 @@ input:focus::placeholder {
   width: 100vw;
   background: var(--background-color);
 }
-#footerText{
-    width: 100%;
-    text-align: center;
+
+#footerText {
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
+
 /* =========================
    BUTTON
 ========================= */
-#footerText button {
+#footerText button,
+dialog button {
   width: 85%;
   height: 4rem;
-  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
   border-radius: 0.5rem;
   color: #ffffff;
   background-color: var(--primary);
   border: 2px solid var(--primary);
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-#footerText button:hover {
-  background-color: var(--secondary);
-}
+
+
 /* =========================
    MODAL
 ========================= */
 dialog {
-    position: fixed;
-    inset: 0;
-    margin: auto;
-    border: none;
-    border-radius: 16px;
-    padding: 24px 28px;
-    max-width: 320px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,.3);
-    color: var(--primary);
-}
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: none;
+  border-radius: 16px;
+  padding: 24px 28px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
+  color: var(--primary);
+  background-color: var(--background-color);
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.3s ease;
 }
 
-dialog button{
-  width: 85%;
-  height: 4rem;
-  margin-top: 1rem !important;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.5rem;
-  border-radius: 0.5rem;
-  color: #ffffff;
-  background-color: var(--primary);
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
 }
+
 .video-wrapper {
   position: relative;
   width: 100%;
   margin-top: 12px;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;
   border-radius: 12px;
   overflow: hidden;
   background: #000;
@@ -223,4 +287,8 @@ dialog button{
 ========================= */
 .hidden {
   display: none !important;
+}
+
+.no-transition * {
+  transition: none !important;
 }
