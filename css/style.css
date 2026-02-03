@@ -227,7 +227,7 @@ dialog button {
   width: 85%;
   height: 4rem;
   margin-top: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-radius: 0.5rem;
   color: #ffffff;
   background-color: var(--primary);
@@ -264,10 +264,7 @@ dialog::backdrop {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background: rgba(0, 0, 0, 4);
-  filter: blur(0rem);
   background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWprZjlxcmY4bzJwdnNyeThqcmpkZmllejB3YWRpZnVzMGU0bTEwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cIgR7K59VEX7RyPDLm/giphy.gif");
-  backdrop-filter: blur(6px);
 }
 
 .video-wrapper {
