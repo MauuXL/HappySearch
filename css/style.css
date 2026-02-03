@@ -266,7 +266,7 @@ dialog::backdrop {
   background-repeat: no-repeat;
   background: rgba(0, 0, 0, 4);
   filter: blur(0rem);
-  background-image: url("../source/start.gif");
+  background-image: url("../source/heart.gif");
   backdrop-filter: blur(6px);
 }
 
