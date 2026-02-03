@@ -47,7 +47,7 @@ starting();
 // ======================
 function createDialog() {
     const dialog = document.createElement('dialog');
-    dialog.classList.add('dark');
+    dialog.classList.add('dark', 'animate__animated', 'animate__fadeInUp');
 
     dialog.innerHTML = `
         <h2>Un poquito de historia...</h2>
@@ -85,7 +85,7 @@ function createDialog() {
 // ======================
 function app() {
     header.innerHTML = '<h1>Ingrese código!</h1>';
-    header.classList.add('animate__animated', 'animate__fadeIn');
+    header.classList.add('animate__animated', 'animate__lightSpeedInLeft');
 
     section.innerHTML = `
         <div id="input">
@@ -94,7 +94,7 @@ function app() {
             ).join('')}
         </div>
     `;
-    section.classList.add('animate__animated', 'animate__backInUp');
+    section.classList.add('animate__animated', 'animate__flipInX');
 
     footer.innerHTML = `<button id="send">Enviar</button>`;
 

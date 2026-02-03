@@ -260,12 +260,10 @@ dialog {
 }
 
 dialog::backdrop {
-  opacity: 0.4;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWprZjlxcmY4bzJwdnNyeThqcmpkZmllejB3YWRpZnVzMGU0bTEwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cIgR7K59VEX7RyPDLm/giphy.gif");
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px);
 }
+
 
 .video-wrapper {
   position: relative;
